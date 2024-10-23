@@ -1,6 +1,8 @@
 {
   "name": "buffalo-design",
   "version": "0.0.2",
+  "description": "React 组件库 Buffalo Design",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -12,9 +14,29 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leirong/buffalo-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leirong/buffalo-design/issues"
+  },
+  "keywords": [
+    "buffalo",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "react",
+    "react-component",
+    "ui"
+  ],
+  "author": "leirong",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/umd/buffalo-design.js",
   "files": [
     "dist",
     "package.json",
