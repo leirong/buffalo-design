@@ -9,7 +9,7 @@ export interface PopoverProps extends PropsWithChildren {
     children: ReactNode;
     title?: ReactNode;
     content?: ReactNode;
-    trigger: "click" | "hover";
+    trigger?: "click" | "hover";
     placement?: Side | AlignedPlacement;
     open?: boolean;
     onOpenChange?: (open: boolean) => void;
