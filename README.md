@@ -25,14 +25,18 @@ import "buffalo-design/dist/css/buffalo-design.min.css";
 
 ### CJS
 
-```
-const { Popover } = require('buffalo-design');
-require('buffalo-design/dist/css/buffalo-design.min.css');
+```ts
+const { Popover } = require("buffalo-design");
+require("buffalo-design/dist/css/buffalo-design.min.css");
 ```
 
 ### UMD
 
-```
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/buffalo-design@0.0.4/dist/css/buffalo-design.min.css" />
-<script src="https://unpkg.com/buffalo-design@0.0.4/dist/umd/buffalo-design.min.js" />
+```html
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://unpkg.com/buffalo-design@0.0.5/dist/css/buffalo-design.min.css"
+/>
+<script src="https://unpkg.com/buffalo-design@0.0.5/dist/umd/buffalo-design.min.js" />
 ```

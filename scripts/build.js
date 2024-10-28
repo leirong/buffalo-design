@@ -18,11 +18,11 @@ const compileTs = async (moduleType, outputDir) => {
   );
 };
 
-const compileCjs = () =>
-  compileTs(ts.server.protocol.ModuleKind.ESNext, "dist/cjs");
+const { CommonJS, ESNext } = ts.server.protocol.ModuleKind;
 
-const compileEsm = () =>
-  compileTs(ts.server.protocol.ModuleKind.CommonJS, "dist/esm");
+const compileCjs = () => compileTs(CommonJS, "dist/cjs");
+
+const compileEsm = () => compileTs(ESNext, "dist/esm");
 
 const compileUmd = () => {
   webpack([webpackConfig(false), webpackConfig(true)], (err, stats) => {
