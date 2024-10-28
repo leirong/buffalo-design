@@ -1,14 +1,14 @@
 import React from "react";
-import { PropsWithChildren, ReactNode, CSSProperties } from "react";
+import { PropsWithChildren, CSSProperties } from "react";
 type Alignment = "start" | "end";
 type Side = "top" | "right" | "bottom" | "left";
 type AlignedPlacement = `${Side}-${Alignment}`;
 export interface PopoverProps extends PropsWithChildren {
     className?: string;
     style?: CSSProperties;
-    children: ReactNode;
-    title?: ReactNode;
-    content?: ReactNode;
+    children: React.ReactNode;
+    title?: React.ReactNode;
+    content?: React.ReactNode;
     trigger?: "click" | "hover";
     placement?: Side | AlignedPlacement;
     open?: boolean;

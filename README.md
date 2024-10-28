@@ -1,4 +1,4 @@
-# React 组件库 Buffalo Design
+# React UI 组件库 Buffalo Design
 
 ## 📦 Install
 
@@ -21,6 +21,15 @@ pnpm add buffalo-design
 ```tsx
 import { Popover } from "buffalo-design";
 import "buffalo-design/dist/css/buffalo-design.min.css";
+export default () => {
+  return (
+    <>
+      <Popover title="title" content="content" trigger="click">
+        <button>click me</button>
+      </Popover>
+    </>
+  );
+};
 ```
 
 ### CJS
@@ -28,15 +37,62 @@ import "buffalo-design/dist/css/buffalo-design.min.css";
 ```ts
 const { Popover } = require("buffalo-design");
 require("buffalo-design/dist/css/buffalo-design.min.css");
+
+export default () => {
+  return (
+    <>
+      <Popover title="Title" content="Content">
+        <buttom>hover me</buttom>
+      </Popover>
+    </>
+  );
+};
 ```
 
 ### UMD
 
 ```html
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://unpkg.com/buffalo-design@0.0.5/dist/css/buffalo-design.min.css"
-/>
-<script src="https://unpkg.com/buffalo-design@0.0.5/dist/umd/buffalo-design.min.js" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buffalo Design UMD Demo</title>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/buffalo-design@0.0.6/dist/umd/buffalo-design.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/buffalo-design@0.0.6/dist/css/buffalo-design.min.css"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      const vDom = React.createElement(
+        window["buffalo-design"].Popover,
+        { title: "title", content: "content" },
+        React.createElement("button", null, "hover me")
+      );
+      root.render(vDom);
+    </script>
+  </body>
+</html>
 ```

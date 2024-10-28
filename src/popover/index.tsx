@@ -3,8 +3,9 @@ import {
   useState,
   useRef,
   PropsWithChildren,
-  ReactNode,
   CSSProperties,
+  cloneElement,
+  isValidElement,
   useMemo,
 } from "react";
 import {
@@ -20,15 +21,16 @@ import {
 } from "@floating-ui/react";
 // import "./index.css";
 import { createPortal } from "react-dom";
+import { isFragment } from "../utils/reactNode";
 type Alignment = "start" | "end";
 type Side = "top" | "right" | "bottom" | "left";
 type AlignedPlacement = `${Side}-${Alignment}`;
 export interface PopoverProps extends PropsWithChildren {
   className?: string;
   style?: CSSProperties;
-  children: ReactNode;
-  title?: ReactNode;
-  content?: ReactNode;
+  children: React.ReactNode;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
   trigger?: "click" | "hover";
   placement?: Side | AlignedPlacement;
   open?: boolean;
@@ -63,7 +65,7 @@ export default function Popover({
     placement,
     middleware: [
       flip(),
-      offset(10),
+      offset(14),
       arrow({
         element: arrowRef,
       }),
@@ -100,16 +102,20 @@ export default function Popover({
       </div>
     </div>
   );
+  const child =
+    isValidElement(children) && !isFragment(children) ? (
+      children
+    ) : (
+      <span>{children}</span>
+    );
   return (
     <>
-      <span
-        ref={refs.setReference}
-        {...getReferenceProps()}
-        className={className}
-        style={style}
-      >
-        {children}
-      </span>
+      {cloneElement(child, {
+        ref: refs.setReference,
+        ...getReferenceProps(),
+        className,
+        style,
+      })}
       {createPortal(floating, el)}
     </>
   );
