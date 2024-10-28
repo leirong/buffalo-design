@@ -1,6 +1,6 @@
 {
   "name": "buffalo-design",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React 组件库 Buffalo Design",
   "license": "MIT",
   "scripts": {
@@ -40,7 +40,9 @@
   ],
   "dependencies": {
     "@floating-ui/react": "^0.26.25",
-    "classnames": "^2.5.1",
+    "classnames": "^2.5.1"
+  },
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

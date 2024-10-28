@@ -2,14 +2,17 @@ const path = require("path");
 /**
  * @type {import('webpack').Configuration}
  */
-module.exports = {
-  mode: "development",
-  devtool: "source-map",
+module.exports = (optimize) => ({
+  mode: "production",
+  // devtool: "source-map",
+  optimization: {
+    minimize: !!optimize,
+  },
   entry: {
     index: ["./src/index.ts"],
   },
   output: {
-    filename: "buffalo-design.js",
+    filename: optimize ? "buffalo-design.min.js" : "buffalo-design.js",
     path: path.join(__dirname, "dist/umd"),
     library: "buffalo-design",
     libraryTarget: "umd",
@@ -33,4 +36,4 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM",
   },
-};
+});

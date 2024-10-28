@@ -25,7 +25,7 @@ const compileEsm = () =>
   compileTs(ts.server.protocol.ModuleKind.CommonJS, "dist/esm");
 
 const compileUmd = () => {
-  webpack(webpackConfig, (err, stats) => {
+  webpack([webpackConfig(false), webpackConfig(true)], (err, stats) => {
     if (err || stats.hasErrors()) {
       console.error(err || stats.toJson().errors);
       return;
