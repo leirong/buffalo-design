@@ -60,11 +60,11 @@ export default () => {
     <title>Buffalo Design UMD Demo</title>
     <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/buffalo-design@0.0.6/dist/umd/buffalo-design.min.js"></script>
+    <script src="https://unpkg.com/buffalo-design@latest/dist/umd/buffalo-design.min.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://unpkg.com/buffalo-design@0.0.6/dist/css/buffalo-design.min.css"
+      href="https://unpkg.com/buffalo-design@latest/dist/css/buffalo-design.min.css"
     />
     <style>
       html,
@@ -87,7 +87,7 @@ export default () => {
       const container = document.getElementById("root");
       const root = ReactDOM.createRoot(container);
       const vDom = React.createElement(
-        window["buffalo-design"].Popover,
+        BuffaloDesign.Popover,
         { title: "title", content: "content" },
         React.createElement("button", null, "hover me")
       );

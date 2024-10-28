@@ -14,7 +14,7 @@ module.exports = (optimize) => ({
   output: {
     filename: optimize ? "buffalo-design.min.js" : "buffalo-design.js",
     path: path.join(__dirname, "dist/umd"),
-    library: "buffalo-design",
+    library: "BuffaloDesign",
     libraryTarget: "umd",
   },
   module: {
